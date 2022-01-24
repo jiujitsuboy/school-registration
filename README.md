@@ -793,6 +793,7 @@ The following list depict the available endpoints of the API:
 * JWT token
 * Hateoas support
 * Etag support
+* Centralized Exception handling ([Controller Advisor](src/main/java/com/metadata/schoolregistration/controller/RestResponseEntityExceptionHandler.java))
 * [Swagger documentation](http://localhost:8082/v2/api-docs) and [Swagger UI](http://localhost:8082/swagger-ui.html)
 * [PostMan collection](postman/School-Registration.postman_collection.json)
 * [Docker Compose containers orchestration](docker-compose.yaml)
