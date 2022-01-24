@@ -789,13 +789,12 @@ The following list depict the available endpoints of the API:
 
 * Java/Spring boot maven project.
 * MySQL DB
-* In memory DB for testing (H2)
 * Spring Oauth2 Authentication/Authorization
 * JWT token
 * Hateoas support
 * Etag support
 * [Swagger documentation](http://localhost:8082/v2/api-docs) and [Swagger UI](http://localhost:8082/swagger-ui.html)
-* [PostMan collection](postman/Minesweeper.postman_collection.json)
+* [PostMan collection](postman/School-Registration.postman_collection.json)
 * [Docker Compose containers orchestration](docker-compose.yaml)
 
 ### How to run the API
