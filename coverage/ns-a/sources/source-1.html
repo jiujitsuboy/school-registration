@@ -1,0 +1,97 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StudentService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.metadata.schoolregistration.service</a>
+</div>
+
+<h1>Coverage Summary for Class: StudentService (com.metadata.schoolregistration.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">StudentService$MockitoMock$980281735</td>
+  </tr>
+  <tr>
+    <td class="name">StudentService$MockitoMock$980281735$auxiliary$hUW3rbfH</td>
+  </tr>
+  <tr>
+    <td class="name">StudentService$MockitoMock$980281735$auxiliary$M9MloNJY</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.metadata.schoolregistration.service;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.metadata.schoolregistration.entity.StudentEntity;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;import java.util.UUID;
+<i class="no-highlight">6</i>&nbsp;import org.springframework.data.domain.Page;
+<i class="no-highlight">7</i>&nbsp;import org.springframework.data.domain.Pageable;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;public interface StudentService{
+<i class="no-highlight">10</i>&nbsp;    StudentEntity create(String username, String firstName, String lastName, String email);
+<i class="no-highlight">11</i>&nbsp;    StudentEntity update(UUID id, String firstName, String lastName, String email);
+<i class="no-highlight">12</i>&nbsp;    StudentEntity delete(UUID id);
+<i class="no-highlight">13</i>&nbsp;    StudentEntity find(UUID id);
+<i class="no-highlight">14</i>&nbsp;    Page&lt;StudentEntity&gt; findAll(Pageable pageable);
+<i class="no-highlight">15</i>&nbsp;    StudentEntity enroll(UUID userId,UUID courseId);
+<i class="no-highlight">16</i>&nbsp;    StudentEntity unroll(UUID userId, UUID courseId);
+<i class="no-highlight">17</i>&nbsp;    Page&lt;StudentEntity&gt; getStudentsEnrolled(UUID courseId, Pageable pageable);
+<i class="no-highlight">18</i>&nbsp;    Page&lt;StudentEntity&gt; getStudentsWithoutCourses(Pageable pageable);
+<i class="no-highlight">19</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-01-24 02:17</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CourseEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.metadata.schoolregistration.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: CourseEntity (com.metadata.schoolregistration.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CourseEntity</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92,9%
+  </span>
+  <span class="absValue">
+    (13/14)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CourseEntity$CourseEntityBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CourseEntity$HibernateProxy$cV6IiZYX</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    88,9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93,3%
+  </span>
+  <span class="absValue">
+    (14/15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.metadata.schoolregistration.entity;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+<i class="no-highlight">4</i>&nbsp;import com.metadata.schoolregistration.model.Course;
+<i class="no-highlight">5</i>&nbsp;import java.util.Set;
+<i class="no-highlight">6</i>&nbsp;import java.util.UUID;
+<i class="no-highlight">7</i>&nbsp;import java.util.stream.Collectors;
+<i class="no-highlight">8</i>&nbsp;import javax.persistence.Column;
+<i class="no-highlight">9</i>&nbsp;import javax.persistence.Entity;
+<i class="no-highlight">10</i>&nbsp;import javax.persistence.FetchType;
+<i class="no-highlight">11</i>&nbsp;import javax.persistence.GeneratedValue;
+<i class="no-highlight">12</i>&nbsp;import javax.persistence.Id;
+<i class="no-highlight">13</i>&nbsp;import javax.persistence.JoinColumn;
+<i class="no-highlight">14</i>&nbsp;import javax.persistence.JoinTable;
+<i class="no-highlight">15</i>&nbsp;import javax.persistence.ManyToMany;
+<i class="no-highlight">16</i>&nbsp;import javax.persistence.Table;
+<i class="no-highlight">17</i>&nbsp;import lombok.AllArgsConstructor;
+<i class="no-highlight">18</i>&nbsp;import lombok.Builder;
+<i class="no-highlight">19</i>&nbsp;import lombok.Data;
+<i class="no-highlight">20</i>&nbsp;import lombok.Getter;
+<i class="no-highlight">21</i>&nbsp;import lombok.NoArgsConstructor;
+<i class="no-highlight">22</i>&nbsp;import lombok.Setter;
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;@Entity
+<i class="no-highlight">25</i>&nbsp;@Table(name =&quot;course&quot;)
+<i class="no-highlight">26</i>&nbsp;@Getter
+<b class="fc"><i class="no-highlight">27</i>&nbsp;@Setter</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;@NoArgsConstructor</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;@AllArgsConstructor</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;@Builder</b>
+<i class="no-highlight">31</i>&nbsp;public class CourseEntity {
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;  @Id
+<i class="no-highlight">34</i>&nbsp;  @GeneratedValue
+<i class="no-highlight">35</i>&nbsp;  @Column(name=&quot;ID&quot;, updatable = false, nullable = false)
+<b class="nc"><i class="no-highlight">36</i>&nbsp;  private UUID id;</b>
+<i class="no-highlight">37</i>&nbsp;
+<i class="no-highlight">38</i>&nbsp;  @Column(name=&quot;NAME&quot;, nullable = false)
+<b class="fc"><i class="no-highlight">39</i>&nbsp;  private String name;</b>
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;  @JsonIgnore
+<i class="no-highlight">42</i>&nbsp;  @ManyToMany(mappedBy = &quot;courses&quot;,fetch = FetchType.EAGER)
+<b class="fc"><i class="no-highlight">43</i>&nbsp;  private Set&lt;StudentEntity&gt; students;</b>
+<i class="no-highlight">44</i>&nbsp;
+<i class="no-highlight">45</i>&nbsp;  public Course toModel(boolean includeStudents){
+<b class="fc"><i class="no-highlight">46</i>&nbsp;    Course course = Course.builder()</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        .id(id)</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        .name(name)</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        .build();</b>
+<i class="no-highlight">50</i>&nbsp;
+<b class="fc"><i class="no-highlight">51</i>&nbsp;    if(includeStudents) {</b>
+<b class="fc"><i class="no-highlight">52</i>&nbsp;      course.setStudents(students.stream().map(studentEntity -&gt; studentEntity.toModel(false)).collect(Collectors.toSet()));</b>
+<i class="no-highlight">53</i>&nbsp;    }
+<b class="fc"><i class="no-highlight">54</i>&nbsp;    return course;</b>
+<i class="no-highlight">55</i>&nbsp;  }
+<i class="no-highlight">56</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-01-24 02:17</div>
+</div>
+</body>
+</html>
